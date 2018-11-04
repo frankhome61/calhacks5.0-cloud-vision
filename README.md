@@ -1,3 +1,4 @@
+
 ![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
 
 **This repo is being deprecated**. All new work can be found at a given
@@ -101,3 +102,6 @@ instructions.
 
 - [iOS Sample Code](https://github.com/GoogleCloudPlatform/cloud-vision/tree/master/ios)
 
+=======
+# calhacks5.0-cloud-vision
+>>>>>>> ced2acabbb1c9feb62b8941c3d3409210ba461b4
