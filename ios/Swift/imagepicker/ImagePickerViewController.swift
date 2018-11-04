@@ -89,14 +89,13 @@ extension ViewController {
                 //for responseDict in responseArray! {
                     let boundingPolyVerticeLst = responseDict["boundingPoly"]["vertices"].array
                     let text = responseDict["description"].string as! NSString
-                    print(boundingPolyVerticeLst)
-                    print(text)
                     var textBox = TextBox(jsonPtLst: boundingPolyVerticeLst, text: text)
                     textArray.append(textBox)
                 }
                 textArray.sort(by: {$0.getY() < $1.getY() })
-                print(textArray)
-                print(self.groupTextBox(textArray: textArray))
+                var strDict = self.getItemPrice(stringLst: self.groupTextBox(textArray: textArray))
+                self.labelResults.text = strDict.description
+                print(strDict)
             }
         })
         
@@ -113,13 +112,40 @@ extension ViewController {
             if (Double(vDist) <= Double(regionThreshold)) {
                 currRes.append(textBox)
             } else {
+                currRes.sort(by: {$0.getX() < $1.getX()})
                 res.append(currRes)
                 currRes = [textBox]
                 currY = textBox.getY()
                 currMargin = textBox.getMargin()
             }
         }
+        print(res)
         return res
+    }
+    
+    func getItemPrice(stringLst: [[TextBox]]) -> NSDictionary {
+        var dict = [String: Double]()
+        var currStr = ""
+        
+        
+        for lst in stringLst {
+            if lst.count-2 >= 0 {
+                for i in 0...lst.count-2 {
+                    currStr += ((lst[i].content as String) + " ")
+                }
+                var lastString = lst[lst.count - 1].content
+                let regex = try? NSRegularExpression(pattern: "^[0-9]+[.]{1}[0-9]+")
+                if ((regex?.matches(in: lastString as String, range: NSRange(location: 0, length: lastString.length))) != nil) {
+                    print(lastString)
+                    print(type(of: lastString))
+                    dict[currStr] = lastString.doubleValue
+                   
+                }
+                
+                currStr = ""
+            }
+        }
+        return dict as NSDictionary
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

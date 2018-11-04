@@ -43,7 +43,12 @@ class TextBox: NSObject {
     }
     
     public override var description: String {
-        return (self.content as String) + " " + "(" + self.p1[0] + ", " + self.p1[1] + ")"
+        return self.content as String + " "
+            //+ "("
+            //+ self.p1[0]
+            //+ ", "
+            //+ self.p1[1]
+            //+ ")"
     }
     
 }

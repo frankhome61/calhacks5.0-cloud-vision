@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gll-Hb-OuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gll-Hb-OuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,29 +21,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-bY-SEm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-bY-SEm">
                                 <rect key="frame" x="32" y="109" width="312" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="312" id="Unn-vP-buD"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hPl-Od-BQa">
-                                <rect key="frame" x="0.0" y="64" width="375" height="115"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hPl-Od-BQa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="154"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="STx-9L-19e">
-                                <rect key="frame" x="0.0" y="176" width="375" height="138"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="STx-9L-19e">
+                                <rect key="frame" x="0.0" y="176" width="375" height="216"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-lw-cEv">
-                                <rect key="frame" x="177.5" y="235" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-lw-cEv">
+                                <rect key="frame" x="177.5" y="274" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-cI-U98">
-                                <rect key="frame" x="204" y="477" width="193" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-cI-U98">
+                                <rect key="frame" x="91" y="269" width="193" height="30"/>
                                 <state key="normal" title="Choose an image to analyze"/>
                                 <connections>
                                     <action selector="loadImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Kv-Mu-qCR"/>
@@ -53,15 +53,16 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hPl-Od-BQa" secondAttribute="trailing" id="14g-IM-Idj"/>
-                            <constraint firstItem="fkD-cI-U98" firstAttribute="centerX" secondItem="1eZ-lw-cEv" secondAttribute="centerX" id="29b-yr-5nu"/>
                             <constraint firstItem="hPl-Od-BQa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="66Q-ye-WDC"/>
                             <constraint firstItem="hPl-Od-BQa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6mh-KQ-MnQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fkD-cI-U98" secondAttribute="bottom" constant="368" id="8HU-gb-98d"/>
                             <constraint firstItem="STx-9L-19e" firstAttribute="trailing" secondItem="hPl-Od-BQa" secondAttribute="trailing" id="D5D-0a-hUN"/>
+                            <constraint firstItem="fkD-cI-U98" firstAttribute="centerY" secondItem="2Ut-bY-SEm" secondAttribute="centerY" id="MOE-Dj-NLz"/>
                             <constraint firstItem="STx-9L-19e" firstAttribute="centerX" secondItem="1eZ-lw-cEv" secondAttribute="centerX" id="MbF-sA-yg4"/>
                             <constraint firstItem="2Ut-bY-SEm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="ZgT-Ug-i6O"/>
+                            <constraint firstItem="fkD-cI-U98" firstAttribute="centerX" secondItem="1eZ-lw-cEv" secondAttribute="centerX" id="b5M-HW-Wah"/>
                             <constraint firstItem="1eZ-lw-cEv" firstAttribute="centerY" secondItem="STx-9L-19e" secondAttribute="centerY" id="e0R-N2-I4k"/>
                             <constraint firstItem="1eZ-lw-cEv" firstAttribute="top" secondItem="hPl-Od-BQa" secondAttribute="bottom" constant="56" id="huS-xr-lWT"/>
-                            <constraint firstItem="fkD-cI-U98" firstAttribute="top" secondItem="2Ut-bY-SEm" secondAttribute="bottom" constant="96" id="rbY-sR-xaC"/>
                             <constraint firstItem="STx-9L-19e" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="112" id="tOn-2A-cbl"/>
                             <constraint firstItem="STx-9L-19e" firstAttribute="leading" secondItem="hPl-Od-BQa" secondAttribute="leading" id="tn0-Gw-Prj"/>
                             <constraint firstItem="2Ut-bY-SEm" firstAttribute="centerY" secondItem="1eZ-lw-cEv" secondAttribute="centerY" id="u7C-bI-LdU"/>
