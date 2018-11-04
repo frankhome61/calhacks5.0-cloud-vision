@@ -53,8 +53,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 }
 
 
-/// Image processing
-
 extension ViewController {
     
     func analyzeResults(_ dataToParse: Data) {
@@ -81,8 +79,7 @@ extension ViewController {
                 var resultArray: [[TextBox]] = []
                 let responses: JSON = json["responses"][0]["textAnnotations"]
                 let responseArray = responses.array
-                
-                
+    
                 for i in 1...responseArray!.count-1 {
                     let responseDict = responseArray![i]
                 //}
@@ -94,8 +91,8 @@ extension ViewController {
                 }
                 textArray.sort(by: {$0.getY() < $1.getY() })
                 var strDict = self.getItemPrice(stringLst: self.groupTextBox(textArray: textArray))
+                var meta = self.getMetaData(stringLst: self.groupTextBox(textArray: textArray))
                 self.labelResults.text = strDict.description
-                print(strDict)
             }
         })
         
@@ -131,15 +128,14 @@ extension ViewController {
         for lst in stringLst {
             if lst.count-2 >= 0 {
                 for i in 0...lst.count-2 {
-                    currStr += ((lst[i].content as String) + " ")
+                    let regex = try? NSRegularExpression(pattern: "^[0-9]+[.]{1}[0-9]+")
+                        currStr += ((lst[i].content as String) + " ")
                 }
                 var lastString = lst[lst.count - 1].content
                 let regex = try? NSRegularExpression(pattern: "^[0-9]+[.]{1}[0-9]+")
-                if ((regex?.matches(in: lastString as String, range: NSRange(location: 0, length: lastString.length))) != nil) {
-                    print(lastString)
-                    print(type(of: lastString))
+                
+                if ((regex?.matches(in: lastString as String, range: NSRange(location: 0, length: lastString.length))) != Optional([])) {
                     dict[currStr] = lastString.doubleValue
-                   
                 }
                 
                 currStr = ""
@@ -147,6 +143,34 @@ extension ViewController {
         }
         return dict as NSDictionary
     }
+    
+    
+    func getMetaData(stringLst: [[TextBox]]) -> [String] {
+        var res: [String] = []
+        var currStr = ""
+        
+        
+        for lst in stringLst {
+            if lst.count-2 >= 0 {
+                for i in 0...lst.count-2 {
+                    let regex = try? NSRegularExpression(pattern: "^[0-9]+[.]{1}[0-9]+")
+                    currStr += ((lst[i].content as String) + " ")
+                }
+                var lastString = lst[lst.count - 1].content
+                let regex = try? NSRegularExpression(pattern: "^[0-9]+[.]{1}[0-9]+")
+                
+                if ((regex?.matches(in: lastString as String, range: NSRange(location: 0, length: lastString.length))) == Optional([])) {
+                    res.append(currStr)
+                }
+                
+                currStr = ""
+            }
+        }
+        return res
+        
+    }
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -178,8 +202,6 @@ extension ViewController {
     }
 }
 
-
-/// Networking
 
 extension ViewController {
     func base64EncodeImage(_ image: UIImage) -> String {
